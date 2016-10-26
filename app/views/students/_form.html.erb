@@ -42,8 +42,7 @@
   <div class="field">
     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
     <%= f.label :Was_This_Workshop_Beneficial_For_You_? %><br><br/>
-    <%= f.radio_button :beneficial, true %>Yes
-    <%= f.radio_button :beneficial, false %>No
+    <%= f.check_box :beneficial%>Yes
   </div>
 </div>
 <div class="form-group">
@@ -57,16 +56,14 @@
   <div class="field">
     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
     <%= f.label :Would_You_LIKE_To_Further_Improve_Your_Skills_With_DCT_ACADEMY_? %><br><br/>
-    <%= f.radio_button :join, true%>Yes
-    <%= f.radio_button :join, false%>No
+    <%= f.check_box :join%>Yes
   </div>
 </div>
 <div class="form-group">
   <div class="field">
     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
     <%= f.label :Is_It_Okay_If_Any_Associate_Calls_You_From_DCT_To_Let_You_Know_The_Details_Of_Courses_? %><br><br/>
-    <%= f.radio_button :consult, true %>Yes
-    <%= f.radio_button :consult, false %>No
+    <%= f.check_box :consult %>Yes
   </div>
 </div>
 <div class="form-group">
