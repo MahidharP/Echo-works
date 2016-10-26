@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @college.name %>
+</p>
+<p>
+  <strong>College Code</strong>
+  <%= @college.code %>
+</p>
+
+<% @college.students.where("code == ?", @college.code).each do |student| %>
+<%= student.name %>
+<% end %>
+
+<%= link_to 'Edit', edit_college_path(@college) %> |
+<%= link_to 'Back', colleges_path %>

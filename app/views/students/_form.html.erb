@@ -1,0 +1,85 @@
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><span class="glyphicon glyphicon-alert" aria-hidden="true"></span><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+  <div class="field">
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <%= f.label :Your_Name %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  </div>
+  <div class="form-group">
+  <div class="field">
+    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+    <%= f.label :Your_Email %><br>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="field">
+    <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+    <%= f.label :Your_Mobile_Number%><br>
+    <%= f.text_field :mobile, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="field">
+    <span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span>
+    <%= f.label :College_Code %><br>
+    <%= f.text_field :collge, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="field">
+    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+    <%= f.label :Was_This_Workshop_Beneficial_For_You_? %><br><br/>
+    <%= f.radio_button :beneficial, true %>Yes
+    <%= f.radio_button :beneficial, false %>No
+  </div>
+</div>
+<div class="form-group">
+  <div class="field">
+    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+    <%= f.label :We_Are_Pleased_To_Hear_Feedback_From_You_As_How_The_Workshop_Was_And_Places_We_Should_Improve_? %><br>
+    <%= f.text_area :feedback, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="field">
+    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+    <%= f.label :Would_You_LIKE_To_Further_Improve_Your_Skills_With_DCT_ACADEMY_? %><br><br/>
+    <%= f.radio_button :join, true%>Yes
+    <%= f.radio_button :join, false%>No
+  </div>
+</div>
+<div class="form-group">
+  <div class="field">
+    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+    <%= f.label :Is_It_Okay_If_Any_Associate_Calls_You_From_DCT_To_Let_You_Know_The_Details_Of_Courses_? %><br><br/>
+    <%= f.radio_button :consult, true %>Yes
+    <%= f.radio_button :consult, false %>No
+  </div>
+</div>
+<div class="form-group">
+  <div class="field">
+    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+    <%= f.label :Is_There_Any_Specific_Technology_That_You_Wish_To_Learn_? %><br>
+    <%= f.text_area :suggestion, class: "form-control" %>
+  </div>
+</div>
+
+ <div class="btn-group">
+  <div class="actions">
+     <%= f.submit "Submit", class: "btn btn-success"%> </button>
+  </div>
+</div>
+<% end %>
