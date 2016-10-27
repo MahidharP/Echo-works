@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<% if user_signed_in? %>
+<% if current_user.is_admin? %>
 <p>
   <strong>Name:</strong>
   <%= @student.name %>
@@ -49,3 +50,7 @@
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
+<% else %>
+  <% redirect_to new_student_path %>
+  <% end %>
+<% end %>
