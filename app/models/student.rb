@@ -24,7 +24,7 @@ class Student < ActiveRecord::Base
 
 
   def college_code
-    coll = College.where('code = ?', self.collge)
+    coll = College.where('code = ?', self.collge)  
       if coll == []
         errors.add(:college, " Code Can't be Empty or Not Matched")
     else

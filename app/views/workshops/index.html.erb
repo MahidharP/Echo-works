@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Workshops</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Students count</th>
+      <th>Amount</th>
+      <th>Fee</th>
+      <th>College</th>
+      <th>Workshop type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workshops.each do |workshop| %>
+      <tr>
+        <td><%= workshop.name %></td>
+        <td><%= workshop.start_date %></td>
+        <td><%= workshop.end_date %></td>
+        <td><%= workshop.students_count %></td>
+        <td><%= workshop.amount %></td>
+        <td><%= workshop.fee %></td>
+        <td><%= workshop.college %></td>
+        <td><%= workshop.workshop_type %></td>
+        <td><%= link_to 'Show', workshop %></td>
+        <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
+        <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Workshop', new_workshop_path %>
