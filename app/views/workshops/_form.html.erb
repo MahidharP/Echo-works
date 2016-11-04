@@ -1,4 +1,4 @@
-<%= form_for(@workshop) do |f| %>
+<%= form_for([@college, @workshop]) do |f| %>
   <% if @workshop.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
@@ -33,15 +33,14 @@
   </div>
   <div class="field">
     <%= f.label :fee %><br>
-    <%= f.text_field :fee %>
+    <%= f.radio_button :fee, "Honor" %> Honor
+    <%= f.radio_button :fee, "Per Head" %> Per Head
   </div>
-  <div class="field">
-    <%= f.label :college_id %><br>
-    <%= f.text_field :college_id %>
-  </div>
+    <%= f.hidden_field :college_id, value: @college.id %>
+
   <div class="field">
     <%= f.label :workshop_type_id %><br>
-    <%= f.text_field :workshop_type_id %>
+    <%= f.collection_select :workshop_type_id, WorkshopType.all, :id, :name, prompt: "Select Workshop Type" %>
   </div>
   <div class="actions">
     <%= f.submit %>

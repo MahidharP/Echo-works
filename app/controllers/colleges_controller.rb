@@ -14,6 +14,7 @@ class CollegesController < ApplicationController
   # GET /colleges/1
   # GET /colleges/1.json
   def show
+    @workshop = Workshop.new
   end
 
   # GET /colleges/new

@@ -40,6 +40,12 @@
 </div>
 <div class="form-group">
   <div class="field">
+    <%= f.label :workshop_id %><br>
+    <%= f.collection_select :workshop_id, Workshop.all, :id, :name, prompt: "Select Workshop", class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="field">
     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
     <%= f.label :Was_This_Workshop_Beneficial_For_You_? %><br><br/>
     <%= f.check_box :beneficial%>Yes

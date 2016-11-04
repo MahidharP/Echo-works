@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103142027) do
+ActiveRecord::Schema.define(version: 20161104062509) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20161103142027) do
     t.boolean  "join"
     t.boolean  "consult"
     t.text     "suggestion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "college_id"
+    t.integer  "workshop_id"
   end
 
   create_table "users", force: :cascade do |t|

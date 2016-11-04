@@ -1,5 +1,6 @@
 class Student < ActiveRecord::Base
-  belongs_to :college
+
+  belongs_to :workshop
 
   validates_presence_of :name
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -24,7 +25,7 @@ class Student < ActiveRecord::Base
 
 
   def college_code
-    coll = College.where('code = ?', self.collge)  
+    coll = College.where('code = ?', self.collge)
       if coll == []
         errors.add(:college, " Code Can't be Empty or Not Matched")
     else

@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :workshops
+
   resources :workshop_types
     devise_for :users, :skip => [:registrations]
 
   resources :students
-  resources :colleges
+  resources :colleges do
+    resources :workshops
+  end
+
+  resources :workshops
 
 
 
