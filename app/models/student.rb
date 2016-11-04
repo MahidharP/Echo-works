@@ -2,15 +2,15 @@ class Student < ActiveRecord::Base
 
   belongs_to :workshop
 
-  validates_presence_of :name
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-  validates_numericality_of :mobile
-  validates_length_of :mobile, is: 10
-  validates_presence_of :feedback
-  validates_presence_of :suggestion
-  #validates_presence_of :join
-  #validates_presence_of :beneficial
-  #validates_presence_of :consult
+   validates_presence_of :name
+   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+   #validates_numericality_of :mobile
+   #validates_length_of :mobile, is: 10, :allow_nil => true
+   validates_presence_of :feedback
+   validates_presence_of :suggestion
+  # #validates_presence_of :join
+  # #validates_presence_of :beneficial
+  # #validates_presence_of :consult
   validates_uniqueness_of :mobile, :email
   validate :college_code
 
