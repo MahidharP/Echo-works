@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+
+
   resources :workshop_types
     devise_for :users, :skip => [:registrations]
 
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :workshops
+  get 'dashboard/index'
 
 
 
