@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
 
     if user.role == "admin"
-      can :manage, [College,Workshop,WorkshopType]
+      can :manage, [College,Workshop,WorkshopType,Technology]
       can :read, [Student]
     elsif user.role == "user"
       can :manage, [Student]
