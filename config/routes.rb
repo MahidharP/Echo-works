@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :technologies
   resources :workshop_types
     devise_for :users, :skip => [:registrations]
 

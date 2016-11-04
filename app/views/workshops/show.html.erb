@@ -54,6 +54,7 @@
       <th>Feedback</th>
       <th>Join</th>
       <th>Consultant</th>
+      <th>Technology</th>
       <th>Suggestion</th>
 
       <th colspan="3"></th>
@@ -71,6 +72,9 @@
         <td><%= student.feedback %></td>
         <td><%= student.join %></td>
         <td><%= student.consult %></td>
+        <td><% student.technologies.each do |technology| %>
+          <%= technology.name %>
+          <% end %>
         <td><%= student.suggestion %></td>
 
         <td><%= link_to 'Show', student %></td>

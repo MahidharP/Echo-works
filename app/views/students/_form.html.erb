@@ -74,6 +74,15 @@
 </div>
 <div class="form-group">
   <div class="field">
+    <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+   <%= f.label :Select_The_Technologies_You_Would_Want_To_Learn_With_DCT_! %> <br>
+    <%= f.collection_check_boxes :technology_ids, Technology.all, :id, :name do |b| %>
+    <%= b.check_box %>
+    <%= b.label %>
+    <br/>
+  <% end %>
+<div class="form-group">
+  <div class="field">
     <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
     <%= f.label :Is_There_Any_Specific_Technology_That_You_Wish_To_Learn_? %><br>
     <%= f.text_area :suggestion, class: "form-control" %>

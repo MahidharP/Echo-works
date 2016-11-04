@@ -28,14 +28,15 @@
     <%= f.text_field :students_count %>
   </div>
   <div class="field">
+    <%= f.label :fee %><br>
+    <%= f.radio_button :fee, "Honor" %> Honor
+    <%= f.radio_button :fee, "PerHead" %> Per Head
+  </div>
+  <div class="field">
     <%= f.label :amount %><br>
     <%= f.text_field :amount %>
   </div>
-  <div class="field">
-    <%= f.label :fee %><br>
-    <%= f.radio_button :fee, "Honor" %> Honor
-    <%= f.radio_button :fee, "Per Head" %> Per Head
-  </div>
+
     <%= f.hidden_field :college_id, value: @college.id %>
 
   <div class="field">

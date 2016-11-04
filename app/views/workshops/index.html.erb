@@ -2,7 +2,7 @@
 
 <h1>Listing Workshops</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,8 +26,8 @@
         <td><%= workshop.students_count %></td>
         <td><%= workshop.amount %></td>
         <td><%= workshop.fee %></td>
-        <td><%= workshop.college %></td>
-        <td><%= workshop.workshop_type %></td>
+        <td><%= workshop.college.try(:name) %></td>
+        <td><%= workshop.workshop_type.try(:name) %></td>
         <td><%= link_to 'Show', workshop %></td>
         <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
         <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -37,5 +37,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Workshop', new_workshop_path %>
