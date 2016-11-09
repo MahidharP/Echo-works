@@ -11,4 +11,11 @@
     <%= link_to "View all Students", students_path %>
 
 
-<h3>No. of workshops conducted
+    <h3>No of workshops conducted till date: <%=@workshops.where('end_date > ?', Date.today).size %></h3>
+
+    <h3>No of scheduled Workshops: <% @workshops.where('start_date > ?', Date.today).each do |workshop| %>
+          <%= workshop.name %>
+          <% end %>
+
+
+      
