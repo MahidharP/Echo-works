@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104114443) do
+ActiveRecord::Schema.define(version: 20161122061332) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20161104114443) do
     t.string   "name"
     t.string   "email"
     t.string   "mobile"
-    t.string   "collge"
+    t.string   "college"
     t.boolean  "beneficial"
     t.text     "feedback"
-    t.boolean  "join"
+    t.boolean  "joining"
     t.boolean  "consult"
     t.text     "suggestion"
     t.datetime "created_at",  null: false

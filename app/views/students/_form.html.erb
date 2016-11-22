@@ -35,7 +35,7 @@
   <div class="field">
     <span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span>
     <%= f.label :College_Code %><br>
-    <%= f.text_field :collge, class: "form-control" %>
+    <%= f.text_field :college, class: "form-control" %>
   </div>
 </div>
 <div class="form-group">
@@ -62,32 +62,27 @@
   <div class="field">
     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
     <%= f.label :Would_You_LIKE_To_Further_Improve_Your_Skills_With_DCT_ACADEMY_? %><br><br/>
-    <%= f.check_box :join%>Yes
+    <%= f.check_box :joining%>Yes
   </div>
 </div>
-<div class="form-group">
-  <div class="field">
-    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-    <%= f.label :Is_It_Okay_If_Any_Associate_Calls_You_From_DCT_To_Let_You_Know_The_Details_Of_Courses_? %><br><br/>
-    <%= f.check_box :consult %>Yes
-  </div>
-</div>
+
 <div class="form-group">
   <div class="field">
     <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
-   <%= f.label :Select_The_Technologies_You_Would_Want_To_Learn_With_DCT_! %> <br>
+    <%= f.label :Select_The_Technologies_You_Would_Want_To_Learn_With_DCT_! %> <br>
     <%= f.collection_check_boxes :technology_ids, Technology.all, :id, :name do |b| %>
     <%= b.check_box %>
     <%= b.label %>
     <br/>
   <% end %>
-<div class="form-group">
-  <div class="field">
-    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-    <%= f.label :Is_There_Any_Specific_Technology_That_You_Wish_To_Learn_? %><br>
-    <%= f.text_area :suggestion, class: "form-control" %>
+  <div class="form-group">
+    <div class="field">
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+      <%= f.label :Is_It_Okay_If_Any_Councelor_Calls_You_From_DCT_Academy_To_Let_You_Know_The_Details_Of_Courses_? %><br><br/>
+      <%= f.check_box :consult %>Yes
+    </div>
   </div>
-</div>
+
 
  <div class="btn-group">
   <div class="actions">

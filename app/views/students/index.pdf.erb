@@ -1,25 +1,3 @@
-
-<p id="notice"><%= notice %></p>
-<% if user_signed_in? %>
-<% if current_user.is_admin?  %>
-
-
-
-<div class="panel panel-primary">
-<div class = "panel-heading">Listing Students : <%= Student.count %></div>
-
-<%= link_to students_path(format: "xls"), class: "btn btn-info btn-sm pull-right" do %>
-<span class = "glyphicon glyphicon-download-alt"></span> Export to Excel
-<% end %>
-<%= link_to students_path(format: "pdf"), class: "btn btn-info btn-sm pull-right" do %>
-<span class = "glyphicon glyphicon-download-alt"></span> Export to Pdf
-<% end %>
-<script>
-$(document).ready(function(){
-    $('#students').DataTable();
-});
-</script>
-
 <table class = "table table-striped" id="students">
   <thead>
     <tr>
@@ -56,12 +34,3 @@ $(document).ready(function(){
     <% end %>
   </tbody>
 </table>
-</div>
-
-
-<br>
-<% if can? :create, Student.new %>
-<%= link_to 'New Student', new_student_path %>
-<% end %>
-<% end %>
-<% end %>
