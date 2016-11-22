@@ -1,15 +1,15 @@
 class Student < ActiveRecord::Base
   has_many :student_technologies
   has_many :technologies, through: :student_technologies
-  
   belongs_to :workshop
+
 
    validates_presence_of :name
    validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
    #validates_numericality_of :mobile
    #validates_length_of :mobile, is: 10, :allow_nil => true
    validates_presence_of :feedback
-   validates_presence_of :suggestion
+   #validates_presence_of :suggestion
   # #validates_presence_of :join
   # #validates_presence_of :beneficial
   # #validates_presence_of :consult
@@ -27,7 +27,7 @@ class Student < ActiveRecord::Base
 
 
   def college_code
-    coll = College.where('code = ?', self.collge)
+    coll = College.where('code = ?', self.college)
       if coll == []
         errors.add(:college, " Code Can't be Empty or Not Matched")
     else
@@ -36,7 +36,7 @@ class Student < ActiveRecord::Base
   end
 
   def assign_college_id
-    cal = College.find_by_code(self.collge)
+    cal = College.find_by_code(self.college)
     self.college_id = cal.id
   end
 end

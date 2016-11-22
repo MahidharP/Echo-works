@@ -25,7 +25,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 4.1', '>= 4.1.1'
 
-gem 'cancan', '~> 1.6', '>= 1.6.10'
+gem 'cancancan', '~> 1.15'
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 
 gem 'bootstrap', '~> 4.0.0.alpha5'
 

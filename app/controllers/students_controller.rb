@@ -7,6 +7,13 @@ class StudentsController < ApplicationController
 
   def index
       @students = Student.all
+      respond_to do |format|
+        format.html
+        format.xls
+        format.pdf do
+          render pdf: "students"
+        end
+      end
   end
 
   # GET /students/1
@@ -31,7 +38,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to @student, notice: 'Thanks For Your Valuable Feedback' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -72,6 +79,10 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
+<<<<<<< HEAD
       params.require(:student).permit(:name, :email, :mobile, :collge, :beneficial, :feedback, :join, :consult, :suggestion, :college_id, :workshop_id, technology_ids: [])
+=======
+      params.require(:student).permit(:name, :email, :mobile, :college, :beneficial, :feedback, :joining, :consult, :suggestion, :college_id, :workshop_id, :technology_ids => [])
+>>>>>>> normal
     end
 end
