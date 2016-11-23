@@ -30,6 +30,9 @@ gem 'cancancan', '~> 1.15'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+gem 'wkhtmltopdf-heroku'
+
+
 
 gem 'bootstrap', '~> 4.0.0.alpha5'
 
