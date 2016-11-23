@@ -5,20 +5,26 @@
       <th>Email</th>
       <th>Mobile</th>
       <th>College</th>
-
+      <th>Beneficial</th>
+      <th>Join</th>
+      <th>Consultant</th>
+      <th>Suggestion</th>
 
       <!-- <th colspan="3"></th> -->
     </tr>
   </thead>
 
   <tbody>
-    <% @students.each do |student| %>
+    <% @college.students.each do |student| %>
       <tr>
         <td><%= student.name %></td>
         <td><%= student.email %></td>
         <td><%= student.mobile %></td>
         <td><%= student.college.name %></td>
-
+        <td><%= student.beneficial %></td>
+        <td><%= student.joining %></td>
+        <td><%= student.consult %></td>
+        <td><%= student.suggestion %></td>
 
         <!-- <td><%= link_to 'Show', student %></td> -->
 

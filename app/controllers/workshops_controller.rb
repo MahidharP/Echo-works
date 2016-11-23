@@ -12,6 +12,13 @@ class WorkshopsController < ApplicationController
   # GET /workshops/1
   # GET /workshops/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.xls
+      format.pdf do
+        render pdf: "students"
+      end
+    end
   end
 
   # GET /workshops/new

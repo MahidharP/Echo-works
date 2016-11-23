@@ -42,8 +42,18 @@
 
 <div class="panel panel-primary">
 <div class = "panel-heading">Listing Students for this workshop : <%= @workshop.students.count %></div>
-
-<table class = "table table-striped">
+<%= link_to workshop_path(@workshop.id, format: "xls"), class: "btn btn-info btn-sm pull-right" do %>
+<span class = "glyphicon glyphicon-download-alt"></span> Export to Excel
+<% end %>
+<%= link_to workshop_path(@workshop.id, format: "pdf"), class: "btn btn-info btn-sm pull-right" do %>
+<span class = "glyphicon glyphicon-download-alt"></span> Export to Pdf
+<% end %>
+<script>
+$(document).ready(function(){
+    $('#students').DataTable();
+});
+</script>
+<table class = "table table-striped" id="students">
   <thead>
     <tr>
       <th>Name</th>
@@ -66,7 +76,7 @@
         <td><%= student.name %></td>
         <td><%= student.email %></td>
         <td><%= student.mobile %></td>
-        <td><%= student.college %></td>
+        <td><%= student.college.name %></td>
         <td><%= student.beneficial %></td>
         <td><%= student.feedback %></td>
         <td><%= student.joining %></td>
