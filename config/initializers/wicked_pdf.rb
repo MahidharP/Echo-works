@@ -3,9 +3,9 @@
 # }
 
 if Rails.env.production?
-  wkhtmltopdf_path = "#{Rails.root}/.rbenv/shims/wkhtmltopdf-amd64"
+  wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf-amd64"
 else
-  wkhtmltopdf_path = "/Users/p.mahidharreddy/.rbenv/shims/wkhtmltopdf"
+  wkhtmltopdf_path = "/usr/local/bin/wkhtmltopdf"            
 end
 
 WickedPdf.config = { exe_path: wkhtmltopdf_path, wkhtmltopdf: wkhtmltopdf_path }
