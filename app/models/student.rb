@@ -2,6 +2,7 @@ class Student < ActiveRecord::Base
   has_many :student_technologies
   has_many :technologies, through: :student_technologies
   belongs_to :workshop
+  belongs_to :college
 
 
    validates_presence_of :name
