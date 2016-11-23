@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 20161122061332) do
     t.string   "name"
     t.string   "email"
     t.string   "mobile"
-    t.string   "college"
+    t.string   "college_code"
     t.boolean  "beneficial"
     t.text     "feedback"
     t.boolean  "joining"
     t.boolean  "consult"
     t.text     "suggestion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "college_id"
     t.integer  "workshop_id"
   end
