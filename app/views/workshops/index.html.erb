@@ -29,8 +29,10 @@
             <td><%= workshop.college.try(:name) %></td>
             <td><%= workshop.workshop_type.try(:name) %></td>
             <td><%= link_to 'Show', workshop %></td>
+            <% if current_user.is_admin? %>
             <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
             <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
         </tr>
         <% end %>
     </tbody>
