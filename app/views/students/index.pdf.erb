@@ -1,30 +1,30 @@
-<table border = 7>
-  <thead>
-    <tr>
-      <th>Sl.No</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Mobile</th>
-      <th>College</th>
+<img src="http://www.dctacademy.com/wp-content/uploads/2016/03/dct-final.jpg">
 
+<table border=7>
+    <thead>
+        <tr>
+            <th>Sl.No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>College</th>
 
-      <!-- <th colspan="3"></th> -->
-    </tr>
-  </thead>
+            <!-- <th colspan="3"></th> -->
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @students.each_with_index do |student,index| %>
-      <tr>
-        <td><%= index + 1 %></td>
-        <td><%= student.name %></td>
-        <td><%= student.email %></td>
-        <td><%= student.mobile %></td>
-        <td><%= student.college.name %></td>
+    <tbody>
+        <% @students.each_with_index do |student,index| %>
+        <tr>
+            <td><%= index + 1 %></td>
+            <td><%= student.name %></td>
+            <td><%= student.email %></td>
+            <td><%= student.mobile %></td>
+            <td><%= student.college.name %></td>
 
+            <!-- <td><%= link_to 'Show', student %></td> -->
 
-        <!-- <td><%= link_to 'Show', student %></td> -->
-
-      </tr>
-    <% end %>
-  </tbody>
+        </tr>
+        <% end %>
+    </tbody>
 </table>

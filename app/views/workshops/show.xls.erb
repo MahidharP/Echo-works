@@ -1,39 +1,41 @@
-<table border = 7>
-  <thead>
-    <tr>
-      <th>Sl.No</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Mobile</th>
-      <th>College code</th>
-      <th>Beneficial</th>
-      <th>Feedback</th>
-      <th>Join</th>
-      <th>Consultant</th>
-      <th>Technology</th>
-      <th>Suggestion</th>
+<img src="http://www.dctacademy.com/wp-content/uploads/2016/03/dct-final.jpg">
 
-    </tr>
-  </thead>
+<table border=7>
+    <thead>
+        <tr>
+            <th>Sl.No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>College code</th>
+            <th>Beneficial</th>
+            <th>Feedback</th>
+            <th>Join</th>
+            <th>Consultant</th>
+            <th>Technology</th>
+            <th>Suggestion</th>
 
-  <tbody>
-    <% @workshop.students.each_with_index do |student,index| %>
-      <tr>
-        <td><%= index + 1 %></td>
-        <td><%= student.name %></td>
-        <td><%= student.email %></td>
-        <td><%= student.mobile %></td>
-        <td><%= student.college.name %></td>
-        <td><%= student.beneficial %></td>
-        <td><%= student.feedback %></td>
-        <td><%= student.joining %></td>
-        <td><%= student.consult %></td>
-        <td><% student.technologies.each do |technology| %>
-          <%= technology.name %>
-          <% end %>
-        <td><%= student.suggestion %></td>
+        </tr>
+    </thead>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+        <% @workshop.students.each_with_index do |student,index| %>
+        <tr>
+            <td><%= index + 1 %></td>
+            <td><%= student.name %></td>
+            <td><%= student.email %></td>
+            <td><%= student.mobile %></td>
+            <td><%= student.college.name %></td>
+            <td><%= student.beneficial %></td>
+            <td><%= student.feedback %></td>
+            <td><%= student.joining %></td>
+            <td><%= student.consult %></td>
+            <td><% student.technologies.each do |technology| %>
+                <%= technology.name %>
+                <% end %>
+                <td><%= student.suggestion %></td>
+
+            </tr>
+            <% end %>
+        </tbody>
+    </table>

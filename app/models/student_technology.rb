@@ -1,4 +1,4 @@
 class StudentTechnology < ActiveRecord::Base
-  belongs_to :student
-  belongs_to :technology 
+    belongs_to :student
+    belongs_to :technology
 end
