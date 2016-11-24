@@ -100,6 +100,13 @@
   data["beneficial"] = @workshop.students.where('beneficial = ?', true).count
   data["not_beneficial"] = @workshop.students.where('beneficial = ?', false).count
 %>
+<h4>Students Not felt Beneficial</h4>
+<% @workshop.students.where('beneficial = ?', false).each do |stu| %>
+<li>
+    <%= stu.name %>
+</li>
+<% end %>
+
 <%= pie_chart(data) %>
 
 <h2>Stats For Joining</h2>

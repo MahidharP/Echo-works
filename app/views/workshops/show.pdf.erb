@@ -1,3 +1,6 @@
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+<%= wicked_pdf_javascript_include_tag "chartkick" %>
+
 <table border=7>
     <thead>
         <tr>
@@ -37,3 +40,27 @@
                 <% end %>
             </tbody>
         </table>
+        <h2>Stats For Beneficial</h2>
+
+        <% data = {}
+          data["beneficial"] = @workshop.students.where('beneficial = ?', true).count
+          data["not_beneficial"] = @workshop.students.where('beneficial = ?', false).count
+        %>
+        <h3>Students Not Felt Beneficail</h3>
+        <% @workshop.students.where('beneficial = ?', false).each do |stu| %>
+        <li>
+            <%= stu.name %>
+        </li>
+        <% end %>
+
+        <%= pie_chart(data) %>
+
+        <h2>Stats For Technologies</h2>
+        <% data2 = {}
+            Technology.all.each do |technology|
+
+              data2[technology.name] = technology.students.where('workshop_id = ?', @workshop.id).count
+            end
+            %>
+        <%= pie_chart(data2) %>
+        <%= column_chart(data2) %>

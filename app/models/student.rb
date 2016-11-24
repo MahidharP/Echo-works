@@ -14,7 +14,7 @@ class Student < ActiveRecord::Base
     # #validates_presence_of :beneficial
     # #validates_presence_of :consult
     validates_uniqueness_of :mobile, :email
-    validate :college_code
+    validate :college_co
 
     after_create :thank_you
 
@@ -24,8 +24,8 @@ class Student < ActiveRecord::Base
         puts 'Thank You for your kind reply, we will get back to you'
     end
 
-    def college_code
-        coll = College.where('code = ?', college)
+    def college_co
+        coll = College.where('code = ?', college_code)
         if coll == []
             errors.add(:college, " Code Can't be Empty or Not Matched")
         else
@@ -34,7 +34,7 @@ class Student < ActiveRecord::Base
     end
 
     def assign_college_id
-        cal = College.find_by_code(college)
+        cal = College.find_by_code(college_code)
         self.college_id = cal.id
     end
 end
