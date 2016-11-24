@@ -1,110 +1,129 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Echo-Works-DCT</title>
-      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-      <%= csrf_meta_tags %>
-      <%= javascript_include_tag "https://www.google.com/jsapi" %>
+    <head>
+        <title>Echo-Works-DCT</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+        <%= javascript_include_tag "https://www.google.com/jsapi" %>
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-      <!-- Optional theme -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-      <link href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
 
-      <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     </head>
-<body>
+    <body>
 
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">DCT Academy</a>
-    </div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">DCT Academy</a>
+                </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <% if user_signed_in? %>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to colleges_path do %>
-        	Colleges
-        	<span class ="badge"><%= College.all.size %></span>
-        	<% end %>
-        </li>
-        <li><%= link_to students_path do %>
-        	Students
-        	<span class ="badge"><%= Student.all.size %></span>
-        	<% end %>
-        </li>
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workshops <span class="badge"><%= Workshop.count %></span><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><%= link_to workshops_path do %>
-            <span class ="glyphicon glyphicon-th-list"></span>List All
-          <% end %>
-          </li>
-        </ul>
-      </li>
-      </ul>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <% if user_signed_in? %>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><%= link_to colleges_path do %>
+                            <% if current_user.is_admin? %>
+                            Colleges
+                            <% end %>
+                            <span class="badge"><%= current_college.nil? ? College.count : current_college.name %></span>
+                            <% end %>
+                        </li>
+                        <li><%= link_to students_path do %>
+                            Students
+                            <span class="badge"><%= current_college.nil? ? Student.count : current_college.students.size %></span>
+                            <% end %>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workshops
+                                <span class="badge"><%= current_college.nil? ? Workshop.count : current_college.workshops.size %></span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to workshops_path do %>
+                                    <span class="glyphicon glyphicon-th-list"></span>List All
+                                    <% end %>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if current_user.is_admin? %>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Technologies
+                                <span class="badge"><%= Technology.count %></span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to technologies_path do %>
+                                    <span class="glyphicon glyphicon-th-list"></span>List All
+                                    <% end %>
+                                </li>
+                                <li><%= link_to new_technology_path do %>
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    New Technology
+                                    <% end %>
+                                </li>
+                            </ul>
+                        </li>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Technologies <span class="badge"><%= Technology.count %></span><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><%= link_to technologies_path do %>
-            <span class ="glyphicon glyphicon-th-list"></span>List All
-          <% end %>
-        </li>
-          <li><%= link_to new_technology_path do %>
-            <span class = "glyphicon glyphicon-plus"></span> New Technology
-            <% end %>
-          </li>
-        </ul>
-      </li>
-        <li class="dropdown">
+                        <li class="dropdown">
 
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workshop Type <span class="badge"><%= Workshop.count %></span><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><%= link_to workshop_types_path do %>
-            <span class ="glyphicon glyphicon-th-list"></span>List All
-          <% end %>
-        </li>
-          <li><%= link_to new_workshop_type_path do %>
-            <span class = "glyphicon glyphicon-plus"></span> New Workshop type
-            <% end %>
-          </li>
-        </ul>
-      </li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workshop Type
+                                <span class="badge"><%= Workshop.count %></span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to workshop_types_path do %>
+                                    <span class="glyphicon glyphicon-th-list"></span>List All
+                                    <% end %>
+                                </li>
+                                <li><%= link_to new_workshop_type_path do %>
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    New Workshop type
+                                    <% end %>
+                                </li>
+                            </ul>
+                        </li>
+                        <% end %>
 
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-          </ul>
-      </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                            <% else %>
+                                <%=link_to "Login", new_user_session_path %>
+                            </ul>
+                        </li>
+                        <% end %>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
 
-      <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-  <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </div>
-</body>
+        <div class="container">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= yield %>
+        </div>
+    </body>
 </html>

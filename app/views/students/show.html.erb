@@ -2,55 +2,54 @@
 <% if user_signed_in? %>
 <% if current_user.is_admin? %>
 <p>
-  <strong>Name:</strong>
-  <%= @student.name %>
+    <strong>Name:</strong>
+    <%= @student.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @student.email %>
+    <strong>Email:</strong>
+    <%= @student.email %>
 </p>
 
 <p>
-  <strong>Mobile:</strong>
-  <%= @student.mobile %>
+    <strong>Mobile:</strong>
+    <%= @student.mobile %>
 </p>
 
 <p>
-  <strong>College code:</strong>
-  <%= @student.college %>
+    <strong>College code:</strong>
+    <%= @student.college %>
 </p>
 
 <p>
-  <strong>Beneficial:</strong>
-  <%= @student.beneficial %>
+    <strong>Beneficial:</strong>
+    <%= @student.beneficial %>
 </p>
 
 <p>
-  <strong>Feedback:</strong>
-  <%= @student.feedback %>
+    <strong>Feedback:</strong>
+    <%= @student.feedback %>
 </p>
 
 <p>
-  <strong>Join:</strong>
-  <%= @student.joining %>
+    <strong>Join:</strong>
+    <%= @student.joining %>
 </p>
 
 <p>
-  <strong>Consultant:</strong>
-  <%= @student.consult %>
+    <strong>Consultant:</strong>
+    <%= @student.consult %>
 </p>
 
 <p>
-  <strong>Suggestion:</strong>
-  <%= @student.suggestion %>
+    <strong>Suggestion:</strong>
+    <%= @student.suggestion %>
 </p>
 
-
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Edit', edit_student_path(@student) %>
+|
 <%= link_to 'Back', students_path %>
 <% else %>
-  <% redirect_to new_student_path %>
-  <% end %>
+<% redirect_to new_student_path %>
+<% end %>
 <% end %>
