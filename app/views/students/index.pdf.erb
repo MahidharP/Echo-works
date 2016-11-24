@@ -1,28 +1,26 @@
-<table border = 7>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Mobile</th>
-      <th>College</th>
+<table border=7>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>College</th>
 
+            <!-- <th colspan="3"></th> -->
+        </tr>
+    </thead>
 
-      <!-- <th colspan="3"></th> -->
-    </tr>
-  </thead>
+    <tbody>
+        <% @students.each do |student| %>
+        <tr>
+            <td><%= student.name %></td>
+            <td><%= student.email %></td>
+            <td><%= student.mobile %></td>
+            <td><%= student.college.name %></td>
 
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.name %></td>
-        <td><%= student.email %></td>
-        <td><%= student.mobile %></td>
-        <td><%= student.college.name %></td>
+            <!-- <td><%= link_to 'Show', student %></td> -->
 
-
-        <!-- <td><%= link_to 'Show', student %></td> -->
-
-      </tr>
-    <% end %>
-  </tbody>
+        </tr>
+        <% end %>
+    </tbody>
 </table>

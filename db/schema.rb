@@ -11,13 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122061332) do
+ActiveRecord::Schema.define(version: 20161123152010) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "code"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "student_technologies", force: :cascade do |t|
@@ -31,14 +44,14 @@ ActiveRecord::Schema.define(version: 20161122061332) do
     t.string   "name"
     t.string   "email"
     t.string   "mobile"
-    t.string   "college"
+    t.string   "college_code"
     t.boolean  "beneficial"
     t.text     "feedback"
     t.boolean  "joining"
     t.boolean  "consult"
     t.text     "suggestion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "college_id"
     t.integer  "workshop_id"
   end
@@ -63,6 +76,7 @@ ActiveRecord::Schema.define(version: 20161122061332) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "role",                   default: "user"
+    t.integer  "college_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
