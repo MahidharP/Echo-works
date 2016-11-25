@@ -14,6 +14,7 @@ Rails.application.configure do
     config.consider_all_requests_local       = false
     config.action_controller.perform_caching = true
     config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.perform_deliveries = true
 
     config.middleware.use ExceptionNotification::Rack,
                           email: {
@@ -23,7 +24,8 @@ Rails.application.configure do
 
     ExceptionNotifier::Rake.configure
 
-    config.action_mailer.smtp_settings = {
+    ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings = {
         address: 'smtp.gmail.com',
         port: 587,
         domain: 'gmail.com',
