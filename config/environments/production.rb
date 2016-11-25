@@ -16,6 +16,17 @@ Rails.application.configure do
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
+    ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings = {
+        address: 'smtp.gmail.com',
+        port: 587,
+        domain: 'gmail.com',
+        authentication: 'plain',
+        enable_starttls_auto: true,
+        user_name: 'nanisty143@gmail.com',
+        password: 'mahidhar',
+        openssl_verify_mode: 'none'
+    }
 
     config.middleware.use ExceptionNotification::Rack,
                           email: {
@@ -26,18 +37,6 @@ Rails.application.configure do
                           }
 
     ExceptionNotifier::Rake.configure
-
-    ActionMailer::Base.delivery_method = :smtp
-    ActionMailer::Base.smtp_settings = {
-        address: 'smtp.gmail.com',
-        port: 587,
-        domain: 'gmail.com',
-        authentication: 'plain',
-        enable_starttls_auto: true,
-        user_name: 'nanisty143@gmail.com',
-        password: 'mahidhar',
-        enable_starttls_auto: true
-    }
 
     # Enable Rack::Cache to put a simple HTTP cache in front of your application
     # Add `rack-cache` to your Gemfile before enabling this.
