@@ -191,7 +191,7 @@ DEPENDENCIES
   chartkick (~> 1.5, >= 1.5.2)
   coffee-rails (~> 4.1.0)
   devise (~> 4.1, >= 4.1.1)
-  exception_notification (~> 4.1, >= 4.1.4)
+  exception_notification (~> 4.2, >= 4.2.1)
   jbuilder (~> 2.0)
   jquery-rails
   pg

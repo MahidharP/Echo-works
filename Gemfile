@@ -24,8 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 4.1', '>= 4.1.1'
 
-gem 'exception_notification', '~> 4.1', '>= 4.1.4'
-
+gem 'exception_notification', '~> 4.2', '>= 4.2.1'
 gem 'cancancan', '~> 1.15'
 
 gem 'squid', '~> 1.2'

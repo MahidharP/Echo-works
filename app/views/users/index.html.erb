@@ -1,19 +1,27 @@
 <h2>Listing Users</h2>
+<div class="panel panel-warning">
+    <div class="panel-heading">Listing users :
+        <%= User.count %></div>
+    <script>
+        $(document).ready(function () {
+            $('#users').DataTable();
+        });
+    </script>
+    <table class="table table-striped" id="users">
+        <thead>
+            <tr>
+                <th>Email</th>
+            </tr>
+        </thead>
 
-<table>
-    <thead>
-        <tr>
-            <th>Email</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @users.each do |user| %>
-        <tr>
-            <td><%= user.email %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+        <tbody>
+            <% @users.each do |user| %>
+            <tr>
+                <td><%= user.email %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
 
 <%= link_to "New User", new_user_path %>

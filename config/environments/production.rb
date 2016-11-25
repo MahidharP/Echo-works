@@ -14,6 +14,25 @@ Rails.application.configure do
     config.consider_all_requests_local       = false
     config.action_controller.perform_caching = true
 
+    config.middleware.use ExceptionNotification::Rack,
+                          email: {
+                              deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+                              email_prefix: '[PREFIX] ',
+                              sender_address: %("notifier" <nanisty143@gmail.com>),
+                              exception_recipients: %w(mahidharreddy10@gmail.com)
+                          }
+
+    config.action_mailer.smtp_settings = {
+        address: 'smtp.gmail.com',
+        port: 587,
+        domain: 'gmail.com',
+        authentication: 'plain',
+        enable_starttls_auto: true,
+        user_name: 'nanisty143@gmail.com',
+        password: 'mahidhar',
+        openssl_verify_mode: 'none'
+    }
+
     # Enable Rack::Cache to put a simple HTTP cache in front of your application
     # Add `rack-cache` to your Gemfile before enabling this.
     # For large-scale production use, consider using a caching reverse proxy like
