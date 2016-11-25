@@ -17,7 +17,7 @@ Rails.application.configure do
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
     ActionMailer::Base.delivery_method = :smtp
-    ActionMailer::Base.smtp_settings = {
+    config.action_mailer.smtp_settings = {
         address: 'smtp.gmail.com',
         port: 587,
         domain: 'gmail.com',
