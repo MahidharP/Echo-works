@@ -22,7 +22,7 @@ Rails.application.configure do
                           }
 
     ExceptionNotifier::Rake.configure
-   end
+
     config.action_mailer.smtp_settings = {
         address: 'smtp.gmail.com',
         port: 587,
@@ -33,6 +33,7 @@ Rails.application.configure do
         password: 'mahidhar',
         openssl_verify_mode: 'none'
     }
+    ExceptionNotifier::Rake.configure
 
     # Enable Rack::Cache to put a simple HTTP cache in front of your application
     # Add `rack-cache` to your Gemfile before enabling this.
