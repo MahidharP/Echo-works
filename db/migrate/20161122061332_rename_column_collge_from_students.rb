@@ -1,6 +1,6 @@
 class RenameColumnCollgeFromStudents < ActiveRecord::Migration
     def change
-        rename_column :students, :join, :joining
-        rename_column :students, :collge, :college_code
+        remove_column :students, :join
+        remove_column :students, :collge
     end
 end

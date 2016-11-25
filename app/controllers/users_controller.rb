@@ -27,11 +27,20 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    def update
+        @user = User.find(params[:id])
+        if @user.update_attributes(user_params)
+            redirect_to user_path(@user.id), notice: 'Successfully Updated'
+        else
+            render action: 'edit'
+        end
+    end
+
     def destroy
         @user = User.find(params[:id])
         @user.destroy
         redirect_to users_path, notice: "Successfully deleted #{user.email}"
-end
+    end
 
     private
 
