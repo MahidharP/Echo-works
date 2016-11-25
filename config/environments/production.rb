@@ -15,7 +15,6 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
 
     config.middleware.use ExceptionNotification::Rack,
-                          ignore_if: ->(env, _exception) { !env.nil? },
                           email: {
                               sender_address: %("notifier" <nanisty143@gmail.com>),
                               exception_recipients: %w(mahidharreddy10@gmail.com)
