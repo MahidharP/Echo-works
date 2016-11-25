@@ -36,7 +36,7 @@ Rails.application.configure do
         enable_starttls_auto: true,
         user_name: 'nanisty143@gmail.com',
         password: 'mahidhar',
-        openssl_verify_mode: 'none'
+        enable_starttls_auto: true
     }
     ExceptionNotifier::Rake.configure
 
