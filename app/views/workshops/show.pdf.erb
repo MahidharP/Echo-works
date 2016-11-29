@@ -46,7 +46,9 @@
           data["beneficial"] = @workshop.students.where('beneficial = ?', true).count
           data["not_beneficial"] = @workshop.students.where('beneficial = ?', false).count
         %>
-        <h3>Students Not Felt Beneficail</h3>
+        <h3>Students Not Felt Beneficail :-
+            <%= @workshop.students.where('beneficial = ?', false).count %>/
+            <%= @workshop.students.count %></h3>
         <% @workshop.students.where('beneficial = ?', false).each do |stu| %>
         <li>
             <%= stu.name %>

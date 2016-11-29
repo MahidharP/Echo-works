@@ -43,6 +43,8 @@ gem 'rails_12factor', group: :production
 source 'https://rails-assets.org' do
     gem 'rails-assets-tether', '>= 1.1.0'
 end
+# For testing purpose
+gem 'faker', '~> 1.6', '>= 1.6.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

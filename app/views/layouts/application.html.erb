@@ -6,6 +6,7 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
         <%= javascript_include_tag "https://www.google.com/jsapi" %>
+        <%= https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js %>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -93,7 +94,7 @@
                             <li class="dropdown">
 
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workshop Type
-                                    <span class="badge"><%= Workshop.count %></span>
+                                    <span class="badge"><%= WorkshopType.count %></span>
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">

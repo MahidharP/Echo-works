@@ -94,29 +94,43 @@
         </tbody>
     </table>
 </div>
-<h2>Stats For Beneficial</h2>
+<div class="alert alert-info" role="alert">
+    <h4>Stats For Beneficial</h4>
+</div>
 
 <% data = {}
   data["beneficial"] = @workshop.students.where('beneficial = ?', true).count
   data["not_beneficial"] = @workshop.students.where('beneficial = ?', false).count
 %>
-<h4>Students Not felt Beneficial</h4>
+<div class="alert alert-danger" role="alert">
+    Students Not felt Beneficial:-
+
+    <%= @workshop.students.where('beneficial = ?', false).count %>/
+    <%= @workshop.students.count %>
+
+</div>
 <% @workshop.students.where('beneficial = ?', false).each do |stu| %>
 <li>
     <%= stu.name %>
 </li>
 <% end %>
 
-<%= pie_chart(data) %>
-
-<h2>Stats For Joining</h2>
+<%= pie_chart(data) %><br/>
+<div class="alert alert-info" role="alert">
+    <h4>
+        Stats For Joining
+    </h4>
+</div>
 <% data1 = {}
     data1["Wanted to Join"] = @workshop.students.where('joining = ?', true).count
     data1["Not Willing"] = @workshop.students.where('joining = ?', false).count
   %>
-<%= pie_chart(data1) %>
-
-<h2>Stats For Technologies</h2>
+<%= pie_chart(data1) %><br/>
+<div class="alert alert-info" role="alert">
+    <h4>
+        Stats For Technologies
+    </h4>
+</div>
 <% data2 = {}
     Technology.all.each do |technology|
 

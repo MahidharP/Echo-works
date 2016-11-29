@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125070223) do
+ActiveRecord::Schema.define(version: 20161128094407) do
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
@@ -90,8 +90,6 @@ ActiveRecord::Schema.define(version: 20161125070223) do
 
   create_table "workshops", force: :cascade do |t|
     t.string   "name"
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.string   "students_count"
     t.string   "amount"
     t.string   "fee"
@@ -99,6 +97,8 @@ ActiveRecord::Schema.define(version: 20161125070223) do
     t.integer  "workshop_type_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   add_index "workshops", ["college_id"], name: "index_workshops_on_college_id"
