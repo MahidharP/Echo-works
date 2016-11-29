@@ -1,12 +1,14 @@
 <h3>Add User</h3>
 
 <%= form_for @user do |f| %>
-
-<%= f.label :email %><br/>
-<%= f.email_field :email %><br/>
-
-<%= f.label :password %><br/>
-<%= f.text_field :password %><br/>
+<div class="form-group">
+    <%= f.label :email %><br/>
+    <%= f.email_field :email, class: "form-control" %><br/>
+</div>
+<div class="form-group">
+    <%= f.label :password %><br/>
+    <%= f.text_field :password, class: "form-control" %><br/>
+</div>
 
 <%= f.label :college %><br/>
 <%= f.collection_select :college_id, College.all, :id, :name, prompt: "Select the college" %><br/>

@@ -1,44 +1,45 @@
 <p id="notice"><%= notice %></p>
+<div class="alert alert-default" role="alert">
+    <p>
+        <strong>Name:</strong>
+        <%= @workshop.name %>
+    </p>
 
-<p>
-    <strong>Name:</strong>
-    <%= @workshop.name %>
-</p>
+    <p>
+        <strong>Start date:</strong>
+        <%= @workshop.start_date %>
+    </p>
 
-<p>
-    <strong>Start date:</strong>
-    <%= @workshop.start_date %>
-</p>
+    <p>
+        <strong>End date:</strong>
+        <%= @workshop.end_date %>
+    </p>
 
-<p>
-    <strong>End date:</strong>
-    <%= @workshop.end_date %>
-</p>
+    <p>
+        <strong>Students count:</strong>
+        <%= @workshop.students_count %>
+    </p>
 
-<p>
-    <strong>Students count:</strong>
-    <%= @workshop.students_count %>
-</p>
+    <p>
+        <strong>Amount:</strong>
+        <%= @workshop.amount %>
+    </p>
 
-<p>
-    <strong>Amount:</strong>
-    <%= @workshop.amount %>
-</p>
+    <p>
+        <strong>Fee:</strong>
+        <%= @workshop.fee %>
+    </p>
 
-<p>
-    <strong>Fee:</strong>
-    <%= @workshop.fee %>
-</p>
+    <p>
+        <strong>College:</strong>
+        <%= @workshop.college.try(:name) %>
+    </p>
 
-<p>
-    <strong>College:</strong>
-    <%= @workshop.college.try(:name) %>
-</p>
-
-<p>
-    <strong>Workshop type:</strong>
-    <%= @workshop.workshop_type.try(:name) %>
-</p>
+    <p>
+        <strong>Workshop type:</strong>
+        <%= @workshop.workshop_type.try(:name) %>
+    </p>
+</div>
 
 <div class="panel panel-primary">
     <div class="panel-heading">Listing Students for this workshop :
@@ -47,7 +48,7 @@
     <span class="glyphicon glyphicon-download-alt"></span>
     Export to Excel
     <% end %>
-    <%= link_to workshop_path(@workshop.id, format: "pdf"), class: "btn btn-info btn-sm pull-right" do %>
+    <%= link_to workshop_path(@workshop.id, format: "pdf"), class: "btn btn-success btn-sm pull-right" do %>
     <span class="glyphicon glyphicon-download-alt"></span>
     Export to Pdf
     <% end %>
@@ -68,8 +69,6 @@
                 <th>Join</th>
                 <th>Consultant</th>
                 <th>Technology</th>
-                <th>Suggestion</th>
-
             </tr>
         </thead>
 
@@ -87,8 +86,6 @@
                 <td><% student.technologies.each do |technology| %>
                     <%= technology.name %>
                     <% end %></td>
-                <td><%= student.suggestion %></td>
-
             </tr>
             <% end %>
         </tbody>

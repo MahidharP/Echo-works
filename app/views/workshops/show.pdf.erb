@@ -9,60 +9,58 @@
             <th>Name</th>
             <th>Email</th>
             <th>Mobile</th>
-            <th>College code</th>
+            <th>College</th>
             <th>Beneficial</th>
             <th>Feedback</th>
             <th>Join</th>
-            <th>Consultant</th>
+            <th>Consult</th>
             <th>Technology</th>
-            <th>Suggestion</th>
         </tr>
     </thead>
 
     <tbody>
         <% @workshop.students.each_with_index do |student,index| %>
         <tr>
-            <td><%= index + 1 %>
-                <td><%= student.name %></td>
-                <td><%= student.email %></td>
-                <td><%= student.mobile %></td>
-                <td><%= student.college.name %></td>
-                <td><%= student.beneficial %></td>
-                <td><%= student.feedback %></td>
-                <td><%= student.joining %></td>
-                <td><%= student.consult %></td>
-                <td><% student.technologies.each do |technology| %>
-                    <%= technology.name %>
-                    <% end %>
-                    <td><%= student.suggestion %></td>
-
-                </tr>
+            <td><%= index + 1 %></td>
+            <td><%= student.name %></td>
+            <td><%= student.email %></td>
+            <td><%= student.mobile %></td>
+            <td><%= student.college.name %></td>
+            <td><%= student.beneficial %></td>
+            <td><%= student.feedback %></td>
+            <td><%= student.joining %></td>
+            <td><%= student.consult %></td>
+            <td><% student.technologies.each do |technology| %>
+                <%= technology.name %>
                 <% end %>
-            </tbody>
-        </table>
-        <h2>Stats For Beneficial</h2>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<h2>Stats For Beneficial</h2>
 
-        <% data = {}
+<% data = {}
           data["beneficial"] = @workshop.students.where('beneficial = ?', true).count
           data["not_beneficial"] = @workshop.students.where('beneficial = ?', false).count
         %>
-        <h3>Students Not Felt Beneficail :-
-            <%= @workshop.students.where('beneficial = ?', false).count %>/
-            <%= @workshop.students.count %></h3>
-        <% @workshop.students.where('beneficial = ?', false).each do |stu| %>
-        <li>
-            <%= stu.name %>
-        </li>
-        <% end %>
+<h3>Students Not Felt Beneficail :-
+    <%= @workshop.students.where('beneficial = ?', false).count %>/
+    <%= @workshop.students.count %></h3>
+<% @workshop.students.where('beneficial = ?', false).each do |stu| %>
+<li>
+    <%= stu.name %>
+</li>
+<% end %>
 
-        <%= pie_chart(data) %>
+<%= pie_chart(data) %>
 
-        <h2>Stats For Technologies</h2>
-        <% data2 = {}
+<h2>Stats For Technologies</h2>
+<% data2 = {}
             Technology.all.each do |technology|
 
               data2[technology.name] = technology.students.where('workshop_id = ?', @workshop.id).count
             end
             %>
-        <%= pie_chart(data2) %>
-        <%= column_chart(data2) %>
+<%= pie_chart(data2) %>
+<%= column_chart(data2) %>

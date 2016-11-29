@@ -1,19 +1,26 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
     <div class="col-md-9">
-        <p>
-            <strong>Name:</strong>
-            <%= @college.name %>
-        </p>
-        <p>
-            <strong>College Code</strong>
-            <%= @college.code %>
-        </p>
-        <p>
-            <strong>Number of Workshops :-
-            </strong>
-            <%= @college.workshops.count %>
-        </p>
+        <div class="alert alert-success" role="alert">
+            <class="alert-link">
+                <p>
+                    <strong>Name:</strong>
+                    <%= @college.name %>
+                </p>
+
+                <p>
+                    <strong>College Code</strong>
+                    <%= @college.code %>
+                </p>
+
+                <p>
+                    <strong>Number of Workshops :-
+                    </strong>
+                    <%= @college.workshops.count %>
+                </p>
+            </a>
+        </div>
+
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3>Listing Workshops For this College :-
@@ -95,8 +102,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Welcome
-                            <%= @current_user.email %>
+                        <h4 class="modal-title" id="myModalLabel">Add Workshop
                         </h4>
                     </div>
                     <div class="modal-body">
@@ -114,39 +120,81 @@
                             </ul>
                         </div>
                         <% end %>
+                        <div class="form-group">
+                            <div class="field">
+                                <%= f.label :name %><br>
+                                <%= f.text_field :name, class: "form-control" %>
+                            </div>
+                        </div>
+                        <script>
+                            $(function () {
+                                var dateFormat = "mm/dd/yy",
+                                    from = $("#start_date_picker").datepicker({defaultDate: "+1w", changeMonth: true, numberOfMonths: 1}).on("change", function () {
+                                        to.datepicker("option", "minDate", getDate(this));
+                                    }),
+                                    to = $("#end_date_picker").datepicker({defaultDate: "+1w", changeMonth: true, numberOfMonths: 1}).on("change", function () {
+                                        from.datepicker("option", "maxDate", getDate(this));
+                                    });
 
-                        <div class="field">
-                            <%= f.label :name %><br>
-                            <%= f.text_field :name %>
+                                function getDate(element) {
+                                    var date;
+                                    try {
+                                        date = $.datepicker.parseDate(dateFormat, element.value);
+                                    } catch (error) {
+                                        date = null;
+                                    }
+
+                                    return date;
+                                }
+                            });
+                        </script>
+                        <div class="form-group">
+                            <div class="field">
+                                <%= f.label :from_date %><br>
+                                <%= f.text_field :start_date, id: "start_date_picker", class: "form-control" %>
+                            </div>
                         </div>
-                        <div class="field">
-                            <%= f.label :start_date %><br>
-                            <%= f.date_select :start_date %>
+
+                        <div class="form-group">
+                            <div class="field">
+                                <%= f.label :To_date%><br>
+                                <%= f.text_field :end_date, id: "end_date_picker", class: "form-control" %>
+                            </div>
                         </div>
-                        <div class="field">
-                            <%= f.label :end_date %><br>
-                            <%= f.date_select :end_date %>
+                        <div class="form-group">
+                            <div class="field">
+                                <%= f.label :students_count %><br>
+                                <%= f.text_field :students_count, class: "form-control" %>
+                            </div>
                         </div>
-                        <div class="field">
-                            <%= f.label :students_count %><br>
-                            <%= f.text_field :students_count %>
+                        <div class="form-group">
+                            <div class="field">
+                                <%= f.label :fee %><br>
+                                <%= f.radio_button :fee, "Honor"  %>
+                                Honor
+                                <%= f.radio_button :fee, "PerHead" %>
+                                Per Head
+                            </div>
                         </div>
-                        <div class="field">
-                            <%= f.label :fee %><br>
-                            <%= f.radio_button :fee, "Honor" %>
-                            Honor
-                            <%= f.radio_button :fee, "PerHead" %>
-                            Per Head
-                        </div>
-                        <div class="field">
-                            <%= f.label :amount %><br>
-                            <%= f.text_field :amount %>
+                        <div class="form-group">
+                            <div class="field">
+                                <%= f.label :amount %><br>
+                                <%= f.text_field :amount, class: "form-control" %>
+                            </div>
                         </div>
                         <%= f.hidden_field :college_id, value: @college.id %>
 
-                        <div class="field">
-                            <%= f.label :workshop_type_id %><br>
-                            <%= f.collection_select :workshop_type_id, WorkshopType.all, :id, :name, prompt: "Select Workshop Type" %>
+                        <script>
+                            $(document).ready(function () {
+                                $("#workshop_workshop_type_id").chosen({width: "inherit"});
+                            })
+                        </script>
+
+                        <div class="form-group">
+                            <div class="field">
+                                <%= f.label :workshop_type_id %><br>
+                                <%= f.collection_select :workshop_type_id, WorkshopType.all, :id, :name, prompt: "Select Workshop Type"  %>
+                            </div>
                         </div>
                         <div class="actions">
                             <%= f.submit %>

@@ -1,7 +1,9 @@
-<h2>Listing Users</h2>
-<div class="panel panel-warning">
-    <div class="panel-heading">Listing users :
-        <%= User.count %></div>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h2>
+            Listing Users :-<%= User.count %>
+        </h2>
+    </div>
     <script>
         $(document).ready(function () {
             $('#users').DataTable();
