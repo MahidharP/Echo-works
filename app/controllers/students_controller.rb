@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
     before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+    before_filter :authenticate_user!, only: [:index, :show, :update, :destroy, :edit]
     # GET /students
     # GET /students.json
 
@@ -31,17 +31,13 @@ class StudentsController < ApplicationController
 
     # POST /students
     # POST /students.json
+
     def create
         @student = Student.new(student_params)
-
-        respond_to do |format|
-            if @student.save
-                format.html { redirect_to @student, notice: 'Thanks For Your Valuable Feedback' }
-                format.json { render :show, status: :created, location: @student }
-            else
-                format.html { render :new }
-                format.json { render json: @student.errors, status: :unprocessable_entity }
-            end
+        if @student.save
+            redirect_to root_path, notice: 'Thank You For Valuable Effort For Making Us Strong'
+        else
+            render :new
         end
     end
 

@@ -8,6 +8,7 @@ Rails.application.configure do
 
     # Do not eager load code on boot.
     config.eager_load = false
+    config.action_mailer.delivery_method = :smtp
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
     # config.action_mailer.smtp_settings = {
     #     address: 'smtp.gmail.com',
@@ -25,7 +26,7 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
 
     # Don't care if the mailer can't send.
-    # config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.raise_delivery_errors = true
     # config.middleware.use ExceptionNotification::Rack,
     #                       email: {
     #                           deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now

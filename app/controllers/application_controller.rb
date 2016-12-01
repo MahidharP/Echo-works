@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
     helper_method :current_college
 
     def current_college
-        @current_college = current_user.college_id.nil? ? nil : current_user.college
+        unless current_user.nil?
+            @current_college = current_user.college_id.nil? ? nil : current_user.college
+        end
     end
 end
