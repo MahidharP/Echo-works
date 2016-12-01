@@ -237,6 +237,7 @@
                             <th>Join</th>
                             <th>Consultant</th>
                             <th>Suggestion</th>
+                            <th>Action</th>
 
                             <!-- <th colspan="3"></th> -->
                         </tr>
@@ -253,6 +254,7 @@
                             <td><%= student.joining %></td>
                             <td><%= student.consult %></td>
                             <td><%= student.suggestion %></td>
+                            <td><%= link_to 'Edit', edit_student_path(student) %></td>
 
                             <!-- <td><%= link_to 'Show', student %></td> -->
 
