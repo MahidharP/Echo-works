@@ -5,5 +5,5 @@
 # Mime::Type.register "application/xls", :xls
 # Mime::Type.register "application/pdf", :pdf
 
-Mime::Type.register 'application/xlx', :xls unless Mime::Type.lookup_by_extension(:xls)
-Mime::Type.register 'application/pdf', :pdf unless Mime::Type.lookup_by_extension(:pdf)
+Mime::Type.register 'application/xls'
+Mime::Type.register 'application/pdf'
