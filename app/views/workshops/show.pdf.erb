@@ -47,9 +47,9 @@
 <h3>Students Not Felt Beneficail :-
     <%= @workshop.students.where('beneficial = ?', false).count %>/
     <%= @workshop.students.count %></h3>
-<% @workshop.students.where('beneficial = ?', false).each do |stu| %>
+<% @workshop.students.where('beneficial = ?', false).each do |student| %>
 <li>
-    <%= stu.name %>
+    <%= student.name %>
 </li>
 <% end %>
 

@@ -16,7 +16,7 @@ class WorkshopsController < ApplicationController
             format.html
             format.xls
             format.pdf do
-                render pdf: 'workshops'
+                render pdf: 'students'
             end
         end
     end
