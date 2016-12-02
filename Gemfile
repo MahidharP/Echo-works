@@ -40,6 +40,8 @@ gem 'bootstrap', '~> 4.0.0.alpha5'
 
 gem 'rails_12factor', group: :production
 
+gem 'googlecharts'
+
 source 'https://rails-assets.org' do
     gem 'rails-assets-tether', '>= 1.1.0'
 end
