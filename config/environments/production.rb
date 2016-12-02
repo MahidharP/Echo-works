@@ -1,6 +1,6 @@
 Rails.application.configure do
     # Settings specified here will take precedence over those in config/application.rb.
-
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg *.ico *.eot *.ttf)
     # Code is not reloaded between requests.
     config.cache_classes = true
 
@@ -33,7 +33,8 @@ Rails.application.configure do
 
     # Disable serving static files from the `/public` folder by default since
     # Apache or NGINX already handles this.
-    config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+    config.serve_static_files = true
+    # ENV['RAILS_SERVE_STATIC_FILES'].present?
 
     # Compress JavaScripts and CSS.
     config.assets.js_compressor = :uglifier
@@ -57,7 +58,7 @@ Rails.application.configure do
 
     # Use the lowest log level to ensure availability of diagnostic information
     # when problems arise.
-    config.log_level = :debug
+    config.log_level = :info
 
     # Prepend all log lines with the following tags.
     # config.log_tags = [ :subdomain, :uuid ]
