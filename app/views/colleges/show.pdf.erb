@@ -1,3 +1,7 @@
+<img src="http://www.dctacademy.com/wp-content/uploads/2016/03/dct-final.jpg">
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+<%= wicked_pdf_javascript_include_tag "chartkick" %>
+
 <table border=7>
     <thead>
         <tr>
@@ -29,3 +33,18 @@
         <% end %>
     </tbody>
 </table>
+
+<% data = {}
+          data["beneficial"] = @college.students.where('beneficial = ?', true).count
+          data["not_beneficial"] = @college.students.where('beneficial = ?', false).count
+        %>
+<h3>Students Not Felt Beneficail :-
+    <%= @college.students.where('beneficial = ?', false).count %>/
+    <%= @college.students.count %></h3>
+<% @college.students.where('beneficial = ?', false).each do |student| %>
+<li>
+    <%= student.name %>
+</li>
+<% end %>
+
+<%= pie_chart(data) %>
