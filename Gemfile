@@ -33,7 +33,7 @@ gem 'squid', '~> 1.2'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge', '~> 0.12.2.1'
-
+gem 'wkhtmltopdf'
 gem 'wkhtmltopdf-heroku'
 
 gem 'bootstrap', '~> 4.0.0.alpha5'
