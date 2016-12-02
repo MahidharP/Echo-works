@@ -34,8 +34,7 @@ gem 'squid', '~> 1.2'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge', '~> 0.12.2.1'
 gem 'wkhtmltopdf'
-gem 'wkhtmltopdf-heroku'
-
+gem 'wkhtmltopdf-heroku', '~> 2.12', '>= 2.12.3.0'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 
 gem 'rails_12factor', group: :production

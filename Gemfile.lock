@@ -218,7 +218,7 @@ DEPENDENCIES
   wicked_pdf
   wkhtmltopdf
   wkhtmltopdf-binary-edge (~> 0.12.2.1)
-  wkhtmltopdf-heroku
+  wkhtmltopdf-heroku (~> 2.12, >= 2.12.3.0)
 
 BUNDLED WITH
    1.13.6
