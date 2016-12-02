@@ -14,7 +14,7 @@ class WorkshopsController < ApplicationController
     def show
         respond_to do |format|
             format.html
-            # format.xls
+            format.xls
             format.pdf do
                 render pdf: 'students'
             end
