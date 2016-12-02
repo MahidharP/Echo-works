@@ -29,7 +29,7 @@ gem 'cancancan', '~> 1.15'
 
 gem 'exception_notification-rake', '~> 0.2.1'
 
-gem 'squid', '~> 1.2'
+# gem 'squid', '~> 1.2'
 
 gem 'wicked_pdf', '1.1.0'
 gem 'wkhtmltopdf-binary-edge', '~> 0.12.2.1'
