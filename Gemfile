@@ -31,7 +31,7 @@ gem 'exception_notification-rake', '~> 0.2.1'
 
 gem 'squid', '~> 1.2'
 
-gem 'wicked_pdf'
+gem 'wicked_pdf', '1.1.0'
 gem 'wkhtmltopdf-binary-edge', '~> 0.12.2.1'
 gem 'wkhtmltopdf'
 gem 'wkhtmltopdf-heroku', '~> 2.12', '>= 2.12.3.0'
