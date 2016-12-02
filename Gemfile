@@ -29,7 +29,7 @@ gem 'cancancan', '~> 1.15'
 
 gem 'exception_notification-rake', '~> 0.2.1'
 
-gem 'squid', '~> 1.2'
+# gem 'squid', '~> 1.2'
 
 gem 'wicked_pdf', '1.1.0'
 gem 'wkhtmltopdf-binary-edge', '~> 0.12.2.1'
@@ -39,7 +39,7 @@ gem 'nk-wkhtmltopdf', '~> 0.11.0.rc1'
 
 gem 'rails_12factor', group: :production
 
-gem 'googlecharts'
+# gem 'googlecharts'
 
 source 'https://rails-assets.org' do
     gem 'rails-assets-tether', '>= 1.1.0'
