@@ -3,10 +3,10 @@
 # }
 
 if Rails.env.production?
-    # wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf-amd64"
-    wkhtmltopdf_path = Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
+    wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf-amd64"
+    # wkhtmltopdf_path = Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
 else
-    wkhtmltopdf_path = '/Users/p.mahidharreddy/.rbenv/shims/wkhtmltopdf'
+    wkhtmltopdf_path = '/usr/local/bin/wkhtmltopdf'
     # wkhtmltopdf_path = "/usr/local/bin/wkhtmltopdf"
 end
 
