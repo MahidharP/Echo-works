@@ -16,7 +16,7 @@ class WorkshopsController < ApplicationController
             format.html
             format.xls
             format.pdf do
-                render pdf: 'students'
+                render pdf: ' '
             end
         end
     end
@@ -27,8 +27,7 @@ class WorkshopsController < ApplicationController
     end
 
     # GET /workshops/1/edit
-    def edit
-    end
+    def edit; end
 
     # POST /workshops
     # POST /workshops.json

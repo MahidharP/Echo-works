@@ -43,7 +43,7 @@
 <% data = {}
           data["beneficial"] = @workshop.students.where('beneficial = ?', true).count
           data["not_beneficial"] = @workshop.students.where('beneficial = ?', false).count
-        %>
+%>
 <h3>Students Not Felt Beneficail :-
     <%= @workshop.students.where('beneficial = ?', false).count %>/
     <%= @workshop.students.count %></h3>
@@ -57,10 +57,9 @@
 
 <h2>Stats For Technologies</h2>
 <% data2 = {}
-            Technology.all.each do |technology|
-
-              data2[technology.name] = technology.students.where('workshop_id = ?', @workshop.id).count
-            end
-            %>
+  Technology.all.each do |technology|
+    data2[technology.name] = technology.students.where('workshop_id = ?', @workshop.id).count
+  end
+%>
 <%= pie_chart(data2) %>
 <%= column_chart(data2) %>
