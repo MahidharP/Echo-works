@@ -1,10 +1,13 @@
+# WickedPdf.config = {
+#   exe_path: '/Users/p.mahidharreddy/.rbenv/shims/wkhtmltopdf'
+# }
+
 if Rails.env.production?
-    @wkhtmltopdf_path = "#{ENV['GEM_HOME']}/gems/wkhtmltopdf-binary-edge-0.12.3.0#{Gem.loaded_specs['wkhtmltopdf-binary-edge'].version}/bin/wkhtmltopdf_linux_x64"
+    wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf-amd64"
+    # wkhtmltopdf_path = Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
 else
-    @wkhtmltopdf_path = `which wkhtmltopdf`.strip
+    wkhtmltopdf_path = '/usr/local/bin/wkhtmltopdf'
+    # wkhtmltopdf_path = "/usr/local/bin/wkhtmltopdf"
 end
 
-WickedPdf.config = {
-    exe_path: @wkhtmltopdf_path,
-    javascript_delay: 2000
-}
+WickedPdf.config = { exe_path: wkhtmltopdf_path, javascript_delay: 2000 }
