@@ -17,7 +17,7 @@ class Student < ActiveRecord::Base
     # #validates_presence_of :consult
 
     validates_uniqueness_of :mobile, :email
-    validate :college_co
+    # validate :college_co
 
     after_create :thank_you
     # after_create :stu_post

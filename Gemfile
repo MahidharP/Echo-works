@@ -32,10 +32,9 @@ gem 'exception_notification-rake', '~> 0.2.1'
 # gem 'squid', '~> 1.2'
 
 gem 'wicked_pdf', '1.1.0'
-gem 'wkhtmltopdf-binary-edge', '~> 0.12.2.1'
-gem 'wkhtmltopdf-heroku', '~> 2.12', '>= 2.12.3.0'
+gem 'wkhtmltopdf'
+gem 'wkhtmltopdf-binary'
 gem 'bootstrap', '~> 4.0.0.alpha5'
-gem 'nk-wkhtmltopdf', '~> 0.11.0.rc1'
 
 gem 'rails_12factor', group: :production
 
