@@ -33,7 +33,7 @@ gem 'exception_notification-rake', '~> 0.2.1'
 
 gem 'wicked_pdf', '1.1.0'
 gem 'wkhtmltopdf'
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary-edge', '~> 0.12.3.0'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 
 gem 'rails_12factor', group: :production
