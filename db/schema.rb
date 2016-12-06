@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20161128094407) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "colleges", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -46,13 +49,13 @@ ActiveRecord::Schema.define(version: 20161128094407) do
     t.string   "mobile"
     t.boolean  "beneficial"
     t.text     "feedback"
+    t.boolean  "joining"
     t.boolean  "consult"
     t.text     "suggestion"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "college_id"
     t.integer  "workshop_id"
-    t.boolean  "joining"
     t.string   "college_code"
   end
 
@@ -79,8 +82,8 @@ ActiveRecord::Schema.define(version: 20161128094407) do
     t.integer  "college_id"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "workshop_types", force: :cascade do |t|
     t.string   "name"
@@ -101,7 +104,9 @@ ActiveRecord::Schema.define(version: 20161128094407) do
     t.date     "end_date"
   end
 
-  add_index "workshops", ["college_id"], name: "index_workshops_on_college_id"
-  add_index "workshops", ["workshop_type_id"], name: "index_workshops_on_workshop_type_id"
+  add_index "workshops", ["college_id"], name: "index_workshops_on_college_id", using: :btree
+  add_index "workshops", ["workshop_type_id"], name: "index_workshops_on_workshop_type_id", using: :btree
 
+  add_foreign_key "workshops", "colleges"
+  add_foreign_key "workshops", "workshop_types"
 end

@@ -4,7 +4,7 @@ development:
  database: echoworks_dev
  host: localhost
  pool: 5
- username: mahi
+ username: p.mahidharreddy
  password: mahi
 
 production:
@@ -13,5 +13,5 @@ production:
  database: echoworks_prod
  host: localhost
  pool: 5
- username: mahi
+ username: p.mahidharreddy
  password: mahi
