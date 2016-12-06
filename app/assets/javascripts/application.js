@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require chartkick
-//= require tether
 //= require_tree .
