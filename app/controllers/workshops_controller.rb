@@ -16,7 +16,8 @@ class WorkshopsController < ApplicationController
             format.html
             format.xls
             format.pdf do
-                render pdf: 'students'
+                render pdf: 'students',
+                       javascript_delay: 3000
             end
         end
     end
