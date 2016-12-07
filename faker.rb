@@ -7,9 +7,9 @@ end
 45.times do
     workshop = Workshop.new
     workshop.name = Faker::Company.catch_phrase
-    workshop.students_count = ('45', '55', '65', '50', '33', '42', '59').sample
-    workshop.amount = ('35000', '45000', '50000', '25000', '30000', '60000').sample
-    workshop.fee = ('Honor', 'PerHead').sample
+    workshop.students_count = %w(45 55 65 50 33 42 59).sample
+    workshop.amount = %w(35000 45000 50000 25000 30000 60000).sample
+    workshop.fee = %w(Honor PerHead).sample
     workshop.college_id = College.all.pluck(:id).sample
     workshop.workshop_type_id = WorkshopType.all.pluck(:id).sample
     workshop.start_date = Faker::Date.between(Date.today, Date.today + 2.months)

@@ -5,6 +5,45 @@
     <%= @technology.name %>
 </p>
 
+<% results = @technology.students.group_by { |s| s[:college_id] } %>
+<% results.each do |key, value|%>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3>
+            <%=College.find(key).name %>
+        </h3>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#students<%= key %>').DataTable();
+        });
+    </script>
+    <table class="table table-striped id" id="students<%= key %>">
+        <thead>
+            <tr>
+                <th>Sl.no</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>workshop</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% value.each_with_index do |k,index| %>
+            <tr>
+                <td><%= index + 1 %></td>
+                <td><%= k.name %></td>
+                <td><%= k.mobile %></td>
+                <td><%= k.email %></td>
+                <td><%= k.workshop.try(:name) %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table><hr><br/>
+
+</div>
+<% end %>
 <%= link_to 'Edit', edit_technology_path(@technology) %>
 |
 <%= link_to 'Back', technologies_path %>
