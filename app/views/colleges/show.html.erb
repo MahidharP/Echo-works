@@ -128,11 +128,11 @@
                         </div>
                         <script>
                             $(function () {
-                                var dateFormat = "mm/dd/yy",
-                                    from = $("#start_date_picker").datepicker({defaultDate: "+1w", changeMonth: true, numberOfMonths: 1}).on("change", function () {
+                                var dateFormat = "yy-mm-dd",
+                                    from = $("#start_date_picker").datepicker({defaultDate: "+1w", changeMonth: true, numberOfMonths: 1, dateFormat}).on("change", function () {
                                         to.datepicker("option", "minDate", getDate(this));
                                     }),
-                                    to = $("#end_date_picker").datepicker({defaultDate: "+1w", changeMonth: true, numberOfMonths: 1}).on("change", function () {
+                                    to = $("#end_date_picker").datepicker({defaultDate: "+1w", changeMonth: true, numberOfMonths: 1, dateFormat}).on("change", function () {
                                         from.datepicker("option", "maxDate", getDate(this));
                                     });
 
