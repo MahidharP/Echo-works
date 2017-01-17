@@ -17,7 +17,8 @@ class StudentsController < ApplicationController
 
     # GET /students/1
     # GET /students/1.json
-    def show; end
+    def show
+    end
 
     # GET /students/new
     def new
@@ -25,7 +26,8 @@ class StudentsController < ApplicationController
     end
 
     # GET /students/1/edit
-    def edit; end
+    def edit
+    end
 
     # POST /students
     # POST /students.json
