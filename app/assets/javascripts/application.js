@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require sweetalert
+//= require sweet-alert
+//= require sweet-alert-confirm
 // require turbolinks
 //= require chartkick
 //= require_tree .

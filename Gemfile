@@ -19,6 +19,10 @@ gem 'wkhtmltopdf-binary'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'googlecharts'
 gem 'puma'
+gem 'sweetalert-rails'
+
+gem 'sweet-alert'
+gem 'sweet-alert-confirm'
 
 group :development do
     # Access an IRB console on exception pages or by using <%= console %> in views
@@ -31,4 +35,8 @@ group :development do
     gem 'capistrano3-puma'
     gem 'capistrano-rails-console'
     gem 'spring'
+    gem 'sweetalert-rails'
+
+    gem 'sweet-alert'
+    gem 'sweet-alert-confirm'
 end
