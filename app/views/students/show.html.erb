@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<script>
+    sweetAlert("<%= notice %>");
+</script>
 <% if user_signed_in? %>
 <% if current_user.is_admin? %>
 <p>
@@ -19,6 +21,11 @@
 <p>
     <strong>College code:</strong>
     <%= @student.college %>
+</p>
+
+<p>
+    <strong>College or University:</strong>
+    <%= @student.university %>
 </p>
 
 <p>
@@ -45,6 +52,7 @@
     <strong>Suggestion:</strong>
     <%= @student.suggestion %>
 </p>
+
 
 <%= link_to 'Edit', edit_student_path(@student) %>
 |

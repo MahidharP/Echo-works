@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
     before_action :set_student, only: [:show, :edit, :update, :destroy]
-    before_filter :authenticate_user!, only: [:index, :show, :update, :destroy, :edit]
+    before_filter :authenticate_user!, only: [:index, :update, :destroy, :edit]
     # GET /students
     # GET /students.json
 
@@ -35,7 +35,7 @@ class StudentsController < ApplicationController
     def create
         @student = Student.new(student_params)
         if @student.save
-            redirect_to root_path, notice: 'Thank You For Valuable Effort For Making Us Strong'
+            redirect_to @student, notice: 'Thank You For Valuable Effort For Making Us Strong'
         else
             render :new
         end

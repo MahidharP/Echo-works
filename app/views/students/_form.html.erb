@@ -6,9 +6,13 @@
 
     <ul>
         <% @student.errors.full_messages.each do |message| %>
-        <li>
-            <span class="glyphicon glyphicon-alert" aria-hidden="true"></span><%= message %></li>
-        <% end %>
+            <li>
+                  <script>
+                      sweetAlert("<%= message %>");
+                  </script>
+                  <span class="glyphicon glyphicon-alert" aria-hidden="true"></span><%= message %>
+            </li>
+         <% end %>
     </ul>
 </div>
 <% end %>

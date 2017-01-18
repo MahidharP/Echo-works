@@ -7,7 +7,7 @@ class Student < ActiveRecord::Base
     validates_presence_of :name
     validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
-    validates :mobile, numericality: { allow_blank: true }, allow_blank: true, length: { minimum: 10, maximum: 15 }
+    validates :mobile, numericality: { allow_nil: true }, allow_nil: true, length: { minimum: 10, maximum: 15 }
 
     validates_presence_of :feedback
 
@@ -16,7 +16,7 @@ class Student < ActiveRecord::Base
     # #validates_presence_of :beneficial
     # #validates_presence_of :consult
 
-    validates_uniqueness_of :mobile, :email
+    validates_uniqueness_of :email
     # validate :college_co
 
     after_create :thank_you
