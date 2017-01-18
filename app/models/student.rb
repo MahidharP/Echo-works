@@ -6,7 +6,7 @@ class Student < ActiveRecord::Base
 
     validates_presence_of :name
     validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-
+    validates_presence_of :stream
     validates :mobile, numericality: { allow_nil: true }, allow_nil: true, length: { minimum: 10, maximum: 15 }
 
     validates_presence_of :feedback
